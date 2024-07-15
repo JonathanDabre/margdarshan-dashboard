@@ -14,26 +14,26 @@ const sidePanelData = [
     {
         id: 2,
         icon: <PiBuildingApartmentFill />,
-        optionName: "Tables",
-        path: "/tables"
+        optionName: "Blog List",
+        path: "/blog-list"
     },
     {
         id: 3,
         icon: <HiCreditCard />,
-        optionName: "Billing",
-        path: "/billing"
+        optionName: "Add Blog",
+        path: "/blog-new"
     },
     {
         id: 4,
         icon: <RiBox2Fill />,
-        optionName: "Virtual Reality",
-        path: "/virtual-reality"
+        optionName: "Blog Comments",
+        path: "/blog-comment"
     },
     {
         id: 5,
         icon: <FaTools />,
-        optionName: "RTL",
-        path: "/rtl"
+        optionName: "Blog Category",
+        path: "/blog-category"
     }
 ]
 

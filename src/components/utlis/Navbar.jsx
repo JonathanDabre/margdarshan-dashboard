@@ -11,10 +11,10 @@ export const Navbar = () => {
 
   const pathNameMap = {
     '/dashboard': 'Dashboard',
-    '/billing': 'Billing',
-    '/tables': 'Tables',
-    '/virtual-reality':'Virtual Reality'
-    // Add other routes as needed
+    '/blog-list': 'Blog List',
+    '/blog-new': 'New Blog',
+    '/blog-comment':'Blog Comment',
+    '/blog-category':'Blog Category'
   };
 
   const currentPathName = pathNameMap[location.pathname] || 'Dashboard';
