@@ -48,13 +48,12 @@ export const AddBlog = () => {
                 <label for="blog-content" class="block px-1 text-sm font-medium leading-6 text-[#344767]">Blog Content</label>
                 <div class="relative mt-2 rounded-md shadow-sm">
                     <JoditEditor
+                        id="#joditEditor"
                         ref={editor}
                         value={content}
-                        // config={config}
                         onChange={newContent => setContent(newContent)}
                     />
                 </div>
-                {content}
             </div>
             <div className='my-2'>
                 <label for="site-author" class="block px-1 text-sm font-medium leading-6 text-[#344767]">

@@ -34,7 +34,13 @@ const sidePanelData = [
         icon: <FaTools />,
         optionName: "Blog Category",
         path: "/blog-category"
-    }
+    },
+    // {
+    //     id: 6,
+    //     icon: <FaTools />,
+    //     optionName: "Blog Category",
+    //     path: "/blog-category"
+    // }
 ]
 
 export default sidePanelData;
