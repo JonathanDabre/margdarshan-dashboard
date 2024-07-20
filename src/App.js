@@ -8,6 +8,7 @@ import BlogTable from './components/tables/BlogTable';
 import CommentTable from './components/tables/CommentTable';
 import CategoryTable from './components/tables/CategoryTable';
 import { AddBlog } from './components/tables/AddBlog';
+import OtpMessage from './components/tables/OtpMessage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
                 <Route path="/blog-new" element={<AddBlog />} /> 
                 <Route path="/blog-comment" element={<CommentTable />} /> 
                 <Route path="/blog-category" element={<CategoryTable />} /> 
+                <Route path="/otp-message" element={<OtpMessage />} /> 
                 <Route path="/tables" element={<BlogTable/>}/>
               </Routes>
             </div>

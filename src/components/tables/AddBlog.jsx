@@ -1,10 +1,19 @@
-import React, { useRef, useState } from 'react';
-import JoditEditor from "jodit-react";
+import React, { useState } from 'react';
+import QuillEditor from './QuillEditor';
 
 export const AddBlog = () => {
-    const editor = useRef(null);
-    const [content, setContent] = useState('');
-    const [categories, setCategories] = useState(["JEE","NEET","Advance","Boards"]); 
+    const [value, setValue] = useState('');
+    const [categoryMessage, setCategoryMessage] = useState('');
+    const [categories, setCategories] = useState(["JEE","NEET","Advance","Boards"]);
+    
+    function categoryInput(e) {
+        // setCategoryMessage()
+    }
+    function addCategory() {
+
+        // setCategories([...,categoryMessage])
+    }
+
     return (
         <div className='rounded-xl my-7 py-5 bg-white h-[100%] container mx-auto px-6'>
             <h6 className='text-[#344767] font-bold'>Add new Blog</h6>
@@ -31,6 +40,15 @@ export const AddBlog = () => {
                 </div>
             </div>
             <div className='my-2'>
+                <label for="new-category" class="block px-1 text-sm font-medium leading-6 text-[#344767]">
+                    Add New Category
+                </label>
+                <div class="relative mt-2 rounded-md shadow-sm">
+                    <input type="text" name="new-category" id="new-category" class="block w-full rounded-md border-0 py-1.5 pl-4 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="New Category" onChange={categoryInput}/>
+                    <button onClick={addCategory}>Add Category</button>
+                </div>
+            </div>
+            <div className='my-2'>
                 <label for="image" class="block px-1 text-sm font-medium leading-6 text-[#344767]">Image</label>
                 <div class="relative mt-2 rounded-md shadow-sm">
                     <input type="file" name="image" id="image" class="block w-full text-gray-900 border-0 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
@@ -47,12 +65,7 @@ export const AddBlog = () => {
             <div className='my-2'>
                 <label for="blog-content" class="block px-1 text-sm font-medium leading-6 text-[#344767]">Blog Content</label>
                 <div class="relative mt-2 rounded-md shadow-sm">
-                    <JoditEditor
-                        id="#joditEditor"
-                        ref={editor}
-                        value={content}
-                        onChange={newContent => setContent(newContent)}
-                    />
+                    <QuillEditor content={value} contentSetter={setValue} />
                 </div>
             </div>
             <div className='my-2'>

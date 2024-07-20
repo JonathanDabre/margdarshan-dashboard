@@ -1,6 +1,6 @@
 import React from "react";
 
-export const BlogListItem = ({profileImage, name, email, role, department, status, id}) => {
+export const BlogListItem = ({profileImage, name, role, status, id}) => {
   
   
   return (
@@ -14,14 +14,12 @@ export const BlogListItem = ({profileImage, name, email, role, department, statu
             </div>
             <div className="flex flex-col">
                 <p className="text-sm font-semibold text-[#344767]">{name}</p>
-                {/* <p className="text-[12px] font-semibold text-[#8E9CB3]">{email}</p> */}
             </div>
         </div>
 
         <div className="col-2 w-[10%] pr-[3px] py-4">
             <div className="flex flex-col text-[12px]">
                 <div className="role font-semibold text-[#707C95]">{role}</div>
-                {/* <div className="department text-[#8897AF]">{department}</div> */}
             </div>
         </div>
 
@@ -35,10 +33,6 @@ export const BlogListItem = ({profileImage, name, email, role, department, statu
                 }
             </div>
         </div>
-
-        {/* <div className="col-4 w-[15%] flex items-center justify-center px-2">
-            <div className="flex justify-center text-[12px] text-[#8392AB] font-semibold">{employedDate}</div>
-        </div> */}
         <div className="col-5 w-[10%] flex justify-center">
             <p className="text-sm flex  items-center font-semibold text-[#8392AB]"><p className="cursor-pointer">Edit</p></p>
         </div>
