@@ -4,7 +4,7 @@ import { CategoryListItem } from './CategoryListItem';
 
 
 
-export const CategoryList = ({ image, title, icon1, icon2, budget, width, color1, color2 }) => {
+export const CategoryList = () => {
   return (
     <div className='rounded-xl my-7 py-5 bg-white h-[100%]'>
         <h6 className='text-[#344767] px-6 font-bold '>Blog Category List</h6> 

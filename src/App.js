@@ -7,7 +7,7 @@ import SidePanel from './components/utlis/SidePanel';
 import BlogTable from './components/tables/BlogTable';
 import CommentTable from './components/tables/CommentTable';
 import CategoryTable from './components/tables/CategoryTable';
-import { AddBlog } from './components/tables/AddBlog';
+import { AddBlog } from './components/Add-Blog/AddBlog';
 import OtpMessage from './components/tables/OtpMessage';
 
 function App() {
