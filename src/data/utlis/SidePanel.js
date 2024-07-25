@@ -10,7 +10,7 @@ const sidePanelData = [
         id: 1,
         icon: <AiFillHome />,
         optionName: "Dashboard",
-        path: "/dashboard"
+        path: "/"
     },
     {
         id: 2,

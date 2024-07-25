@@ -3,6 +3,7 @@ import QuillEditor from './QuillEditor';
 import TextInput from './TextInput';
 import SelectInput from './SelectInput';
 import CategoryInput from './CategoryInput';
+import { IoIosClose } from 'react-icons/io';
 
 export const AddBlog = () => {
     const [value, setValue] = useState('');
@@ -17,6 +18,8 @@ export const AddBlog = () => {
     const [metaTitle, setMetaTitle] = useState('');
     const [metaDescription, setMetaDescription] = useState('');
     const [metaKeywords, setMetaKeywords] = useState('');
+    const [tag, setTag] = useState('');
+    const [tags, setTags] = useState([]);
 
     const handleCategoryInput = (e) => {
         setCategoryMessage(e.target.value);
@@ -25,6 +28,17 @@ export const AddBlog = () => {
     const handleAddCategory = () => {
         setCategories([...categories, categoryMessage]);
         setCategoryMessage('');
+    };
+
+    const handleAddTag = () => {
+        if (tag.trim() && !tags.includes(tag.trim())) {
+            setTags([...tags, tag.trim()]);
+            setTag('');
+        }
+    };
+
+    const handleRemoveTag = (tagToRemove) => {
+        setTags(tags.filter(t => t !== tagToRemove));
     };
 
     return (
@@ -51,6 +65,29 @@ export const AddBlog = () => {
                 <div className="relative mt-2 rounded-md shadow-sm">
                     <QuillEditor content={value} contentSetter={setValue} />
                 </div>
+            </div>
+            <div className='my-2'>
+                <label htmlFor="tags" className="block px-1 text-sm font-medium leading-6 text-[#344767]">Add Tags</label>
+                <div className="relative mt-2 rounded-md shadow-sm flex">
+                    <input
+                        type="text"
+                        name="tags"
+                        id="tags"
+                        className="block w-full rounded-md border-0 py-1.5 pl-4 pr-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        placeholder="Add a tag"
+                        value={tag}
+                        onChange={(e) => setTag(e.target.value)}
+                        onKeyPress={(e) => e.key === 'Enter' && handleAddTag()}
+                    />
+                    <button type="button" onClick={handleAddTag} className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 ml-2 rounded-md shadow-sm">Add</button>
+                </div>
+            </div>
+            <div className='flex flex-wrap gap-2 mt-2'>
+                {tags.map((tag, index) => (
+                    <p key={index} className="text-sm px-3 py-1 rounded-full bg-green-200 text-green-700 flex items-center">
+                        {tag} <IoIosClose className="ml-1 cursor-pointer" onClick={() => handleRemoveTag(tag)} />
+                    </p>
+                ))}
             </div>
             <TextInput label="Site Author" name="site-author" id="site-author" placeholder="Site Author" value={siteAuthor} onChange={(e) => setSiteAuthor(e.target.value)} required />
             <TextInput label="Site Name" name="site-name" id="site-name" placeholder="Site Name" value={siteName} onChange={(e) => setSiteName(e.target.value)} required />

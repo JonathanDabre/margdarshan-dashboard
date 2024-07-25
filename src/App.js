@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import { BillingTab } from './components/billing/BillingTab';
 import { Dashboard } from './components/dashboard/Dashboard';
 import { Navbar } from './components/utlis/Navbar';
@@ -9,6 +9,9 @@ import CommentTable from './components/tables/CommentTable';
 import CategoryTable from './components/tables/CategoryTable';
 import { AddBlog } from './components/Add-Blog/AddBlog';
 import OtpMessage from './components/tables/OtpMessage';
+import Home from './components/utlis/Home';
+
+
 
 function App() {
   return (
@@ -19,7 +22,7 @@ function App() {
             <Navbar />
             <div className="routes">
               <Routes>
-                <Route path="/" element={<Navigate to="/tables" />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/blog-list" element={<BlogTable />} /> 
                 <Route path="/blog-new" element={<AddBlog />} /> 
