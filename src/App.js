@@ -10,6 +10,7 @@ import CategoryTable from './components/tables/CategoryTable';
 import { AddBlog } from './components/Add-Blog/AddBlog';
 import OtpMessage from './components/tables/OtpMessage';
 import Home from './components/utlis/Home';
+import Login from './components/utlis/Login';
 
 
 
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/blog-category" element={<CategoryTable />} /> 
                 <Route path="/otp-message" element={<OtpMessage />} /> 
                 <Route path="/tables" element={<BlogTable/>}/>
+                <Route path="/login" element={<Login />}/>
               </Routes>
             </div>
         </div>
