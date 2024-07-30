@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SidePanelItem from './SidePanelItem';
-import sidePanelData from '../../data/utlis/SidePanel'
-import margLogo from '../../assets/Marg-Logo.svg'
+import sidePanelData from '../../data/utlis/SidePanel';
+import margLogo from '../../assets/Marg-Logo.svg';
+import { useAuth } from '../../context/AuthContext';
 
 const SidePanel = () => {
-  const [activeItemId, setActiveItemId] = useState(1); // Default to first item
-  // const [accountPagesActiveItemId, setAccountPagesActiveItemId] = useState(0);
+  const [activeItemId, setActiveItemId] = useState(1);
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const handleItemClick = (id, path) => {
     setActiveItemId(id);
-    // setAccountPagesActiveItemId(0);
     navigate(path);
   };
 
-  // const handleAccountPagesItemClick = (id, path) => {
-  //   setActiveItemId(0);
-  //   setAccountPagesActiveItemId(id);
-  //   navigate(path);
-  // };
+  // Filter side panel items based on the user's role
+  const filteredSidePanelData = sidePanelData.filter(item => {
+    if (user.role === 'admin') return true;
+    if (user.role === 'blog' && item.path.includes('blog')) return true;
+    if (user.role === 'otp' && item.path === '/otp-message') return true;
+    return false;
+  });
 
   return (
     <div className='fixed top-0 left-0 w-[20%] 2xl:w-[18%] h-screen bg-[#F7F9FB] flex flex-col overflow-y-auto'>
@@ -28,7 +30,7 @@ const SidePanel = () => {
           <img src={margLogo} alt='Margdarshan'/>
         </div>
         <div className="sidePanel-items flex flex-col pt-5 items-start">
-          {sidePanelData.map(item => (
+          {filteredSidePanelData.map(item => (
             <SidePanelItem
               key={item.id}
               icon={item.icon}
@@ -38,39 +40,6 @@ const SidePanel = () => {
             />
           ))}
         </div>
-        {/* <div className="account-pages-heading text-[#828FA2] text-[0.75rem] px-4 mt-3 font-semibold">ACCOUNT PAGES</div>
-        <div className="sidePanel-items flex flex-col pt-3 items-start">
-          {accountPagesData.map(item => (
-            <SidePanelItem
-              key={item.id}
-              icon={item.icon}
-              optionName={item.optionName}
-              isActive={item.id === accountPagesActiveItemId}
-              onClick={() => handleAccountPagesItemClick(item.id, item.path)}
-            />
-          ))}
-        </div> */}
-        {/* <div className="documentation-box mt-6 py-3 pl-3 pr-1">
-          <div className="rounded-xl bg-gradient-to-r from-[#56C8EC] to-[#6389F9] flex flex-col p-4">
-            <div className="icon mb-4 text-md drop-shadow-sm p-2 bg-white rounded-lg w-fit text-[#2196FE] ">
-              <FaStar />
-            </div>
-            <div className="text flex flex-col mb-4 text-white">
-              <h2 className="text-sm font-bold">Need Help?</h2>
-              <p className="text-[12px] font-semibold">Please check our docs</p>
-            </div>
-            <div className="button">
-              <button className='flex bg-white w-full justify-center drop-shadow-sm text-[#344767] px-3 py-2 rounded-lg text-[12px] font-semibold'>
-                DOCUMENTATION
-              </button>
-            </div>
-          </div>
-        </div> */}
-        {/* <div className="py-3 pl-3 pr-1">
-          <div className="button">
-            <button className='flex justify-center w-full rounded-lg text-white py-3 text-[12px] font-bold bg-gradient-to-br from-[#21CDFD] to-[#1F61F1] '>UPGRADE TO PRO</button>
-          </div>
-        </div> */}
       </div>
     </div>
   );

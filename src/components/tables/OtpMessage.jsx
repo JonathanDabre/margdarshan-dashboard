@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import OtpContent from '../../data/utlis/OtpContent';
 import OtpMessageItem from './OtpMessageItem';
-import QuillEditor from './QuillEditor';
 
 export default function OtpMessage() {
     const [value, setValue] = useState('');
@@ -63,7 +62,16 @@ export default function OtpMessage() {
                 <div className='my-2'>
                     <label htmlFor="mail-content" className="block px-1 text-sm font-medium leading-6 text-[#344767]">Mail Content</label>
                     <div className="relative mt-2 rounded-md shadow-sm">
-                        <QuillEditor content={value} contentSetter={setValue} />
+                        <input 
+                            type="text" 
+                            name="mail-content" 
+                            id="mail-content" 
+                            className="block w-full rounded-md border-0 py-1.5 pl-4 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+                            placeholder="Mail Content" 
+                            required 
+                            value={value}
+                            onChange={(e) => setValue(e.target.value)}
+                        />
                     </div>
                 </div>
                 <div className='my-2'>

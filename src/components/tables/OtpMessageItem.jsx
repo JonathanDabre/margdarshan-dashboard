@@ -15,6 +15,12 @@ export default function OtpMessageItem({ subject, content, category, onEdit, onD
         }
     };
 
+    const handleDelete = () => {
+        if (window.confirm('This action will delete the OTP message. Are you sure you want to proceed?')) {
+            onDelete();
+        }
+    };
+
     return (
         <div className="min-w-[100%] lg:min-w-[25%] lg:max-w-[25%] rounded-lg overflow-hidden border border-gray-300 m-4 flex flex-col">
             <div className="px-6 py-4 flex-grow">
@@ -26,7 +32,7 @@ export default function OtpMessageItem({ subject, content, category, onEdit, onD
                 <div className="flex space-x-2">
                     <button 
                         className="bg-slate-200 hover:bg-red-300 text-slate-600 hover:text-red-600 font-bold p-3 rounded-full"
-                        onClick={onDelete}
+                        onClick={handleDelete}
                     >
                         <MdDelete />
                     </button>
