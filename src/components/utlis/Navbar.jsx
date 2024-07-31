@@ -16,7 +16,8 @@ export const Navbar = () => {
     '/blog-new': 'New Blog',
     '/blog-comment': 'Blog Comment',
     '/blog-category': 'Blog Category',
-    '/otp-message': 'OTP Message'
+    '/otp-message': 'OTP Message',
+    '/users': 'Users'
   };
 
   const currentPathName = pathNameMap[location.pathname] || 'Dashboard';

@@ -12,6 +12,7 @@ import Home from './components/utlis/Home';
 import Login from './components/utlis/Login';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import User from './components/Users/User'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/blog-comment" element={<ProtectedRoute allowedRoles={['admin', 'blog']}><CommentTable /></ProtectedRoute>} />
                 <Route path="/blog-category" element={<ProtectedRoute allowedRoles={['admin', 'blog']}><CategoryTable /></ProtectedRoute>} />
                 <Route path="/otp-message" element={<ProtectedRoute allowedRoles={['admin', 'otp']}><OtpMessage /></ProtectedRoute>} />
+                <Route path="/users" element={<ProtectedRoute allowedRoles={['admin']}><User /></ProtectedRoute>} />
               </Routes>
             </div>
           </div>

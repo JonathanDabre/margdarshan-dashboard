@@ -15,7 +15,6 @@ const SidePanel = () => {
     navigate(path);
   };
 
-  // Filter side panel items based on the user's role
   const filteredSidePanelData = sidePanelData.filter(item => {
     if (user.role === 'admin') return true;
     if (user.role === 'blog' && item.path.includes('blog')) return true;

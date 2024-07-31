@@ -4,6 +4,7 @@ import { MdLibraryAdd } from "react-icons/md";
 import { BiSolidCommentDetail } from "react-icons/bi";
 import { BiSolidCategoryAlt } from "react-icons/bi";
 import { RiMessage3Fill } from "react-icons/ri";
+import { FaUser } from "react-icons/fa";
 
 const sidePanelData = [
     {
@@ -41,6 +42,12 @@ const sidePanelData = [
         icon: <RiMessage3Fill />,
         optionName: "OTP Message",
         path: "/otp-message"
+    },
+    {
+        id: 7,
+        icon: <FaUser />,
+        optionName: "Users",
+        path: "/users"
     }
 ]
 
